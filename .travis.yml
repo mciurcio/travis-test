@@ -3,6 +3,7 @@ rvm:
   - 2.2
 script:
   - "bundle exec rake rubocop"
+  - "bundle exec rake validate_installer"
 addons:
   apt:
     sources:
