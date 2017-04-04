@@ -1,3 +1,9 @@
 language: ruby
 rvm:
   - 2.2
+addons:
+  apt:
+   sources:
+    - debian-sid
+    packages:
+    - shellcheck

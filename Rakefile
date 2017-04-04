@@ -8,3 +8,5 @@ task :validate_installer do
   system('shellcheck puppet-agent-installer.sh')
   raise 'Violations found using ShellCheck' unless $CHILD_STATUS.success?
 end
+
+task :default => [:rubocop]
