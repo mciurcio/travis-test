@@ -1,5 +1,5 @@
-# Puppet Development Environment
+# Puppet Development Tookit
 
-This is a simple toolkit that uses Vagrant and some shell scripting to setup virtual machines for Puppet module development.
+This is a simple toolkit that uses Vagrant to setup virtual machines for Puppet module development.
 
-This is used by Instruct’s developers.
+This is used by Instruct's developers.
