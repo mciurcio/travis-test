@@ -1,6 +1,8 @@
 language: ruby
 rvm:
   - 2.2
+script:
+  - script: "bundle exec rake rubocop"
 addons:
   apt:
    sources:
