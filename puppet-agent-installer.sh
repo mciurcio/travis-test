@@ -9,7 +9,6 @@ detect_rhel_7 ( ) {
   if egrep ' 7\.' /etc/redhat-release &> /dev/null; then
     rpm -Uvh https://yum.puppetlabs.com/puppetlabs-release-pc1-el-7.noarch.rpm
     yum install -y puppet-agent
-    if [ $? -eq ]; then echo 'a'; fi
   fi
 
 }
