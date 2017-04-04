@@ -3,3 +3,9 @@ rvm:
   - 2.2
 script:
   - "bundle exec rake rubocop"
+addons:
+  apt:
+    sources:
+      - debian-sid
+    packages:
+      - shellcheck
