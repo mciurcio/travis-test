@@ -4,11 +4,11 @@ require 'rubocop/rake_task'
 require 'yamllint/rake_task'
 
 YamlLint::RakeTask.new do |t|
-  t.paths = %w(
+  t.paths = %w[
     environment.yaml
     .rubocop.yml
     .travis.yml
-  )
+  ]
 end
 
 desc 'Reek code smells'
