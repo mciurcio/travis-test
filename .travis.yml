@@ -4,6 +4,7 @@ rvm:
 script:
   - "bundle exec rake reek"
   - "bundle exec rake rubocop"
+  - "bundle exec rake yamllint"
   - "bundle exec rake shellcheck"
 addons:
   apt:
