@@ -1,5 +1,19 @@
 require 'English'
+require 'reek'
 require 'rubocop/rake_task'
+
+desc 'Reek code smells'
+task :reek do
+  reporter = Reek::Report::TextReport.new
+  vagrantfile_examiner = Reek::Examiner.new File.open('Vagrantfile')
+  rakefile_examiner = Reek::Examiner.new File.open('Rakefile')
+  reporter.add_examiner vagrantfile_examiner
+  reporter.add_examiner rakefile_examiner
+  if reporter.smells?
+    reporter.show
+    raise 'Smell violations found using Reek'
+  end
+end
 
 RuboCop::RakeTask.new
 
