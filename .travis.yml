@@ -2,6 +2,7 @@ language: ruby
 rvm:
   - 2.2
 script:
+  - "bundle exec rake reek"
   - "bundle exec rake rubocop"
   - "bundle exec rake shellcheck"
 addons:
