@@ -21,3 +21,7 @@ nodes:
     box: ubuntu/precise64
   debian-8:
     box: debian/jessie64
+  sles-11:
+    box: elastic/sles-11-x86_64
+  sles-12:
+    box: elastic/sles-12-x86_64

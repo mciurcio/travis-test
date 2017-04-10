@@ -1,6 +1,15 @@
 require 'English'
 require 'reek'
 require 'rubocop/rake_task'
+require 'yamllint/rake_task'
+
+YamlLint::RakeTask.new do |t|
+  t.paths = %w(
+    environment.yaml
+    .rubocop.yml
+    .travis.yml
+  )
+end
 
 desc 'Reek code smells'
 task :reek do
