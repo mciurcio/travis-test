@@ -9,6 +9,7 @@ before_install:
   - gpg --verify vagrant_1.9.4_SHA256SUMS.sig vagrant_1.9.4_SHA256SUMS
 #  - sha256sum -c vagrant_1.9.4_SHA256SUMS 2>&1 | grep 'vagrant_1.9.4_x86_64.deb: OK'
   - sudo dpkg -i vagrant_1.9.4_x86_64.deb
+  - vagrant plugin install vagrant-share --plugin-version 1.1.8
 script:
   - "vagrant validade"
   - "bundle exec rake reek"
