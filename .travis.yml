@@ -5,13 +5,15 @@ before_install:
   - wget https://releases.hashicorp.com/vagrant/1.9.4/vagrant_1.9.4_x86_64.deb
   - wget https://releases.hashicorp.com/vagrant/1.9.4/vagrant_1.9.4_SHA256SUMS
   - wget https://releases.hashicorp.com/vagrant/1.9.4/vagrant_1.9.4_SHA256SUMS.sig
+  - wget http://download.virtualbox.org/virtualbox/5.1.20/virtualbox-5.1_5.1.20-114628~Ubuntu~trusty_amd64.deb
   - gpg --recv 51852D87348FFC4C
   - gpg --verify vagrant_1.9.4_SHA256SUMS.sig vagrant_1.9.4_SHA256SUMS
 #  - sha256sum -c vagrant_1.9.4_SHA256SUMS 2>&1 | grep 'vagrant_1.9.4_x86_64.deb: OK'
   - sudo dpkg -i vagrant_1.9.4_x86_64.deb
+  - sudo dpkg -i virtualbox-5.1_5.1.20-114628~Ubuntu~trusty_amd64.deb
   - vagrant plugin install vagrant-share --plugin-version 1.1.8
 script:
-  - "vagrant --provider=VirtualBox validate"
+  - "vagrant validate"
   - "bundle exec rake reek"
   - "bundle exec rake rubocop"
   - "bundle exec rake yamllint"
@@ -22,3 +24,5 @@ addons:
       - debian-sid
     packages:
       - shellcheck
+dist: trusty
+sudo: required
