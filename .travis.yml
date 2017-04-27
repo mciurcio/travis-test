@@ -11,7 +11,7 @@ before_install:
   - sudo dpkg -i vagrant_1.9.4_x86_64.deb
   - vagrant plugin install vagrant-share --plugin-version 1.1.8
 script:
-  - "vagrant validate"
+  - "vagrant --provider=VirtualBox validate"
   - "bundle exec rake reek"
   - "bundle exec rake rubocop"
   - "bundle exec rake yamllint"
