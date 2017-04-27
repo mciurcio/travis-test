@@ -1,7 +1,16 @@
 language: ruby
 rvm:
   - 2.2
+before_install:
+  - wget https://releases.hashicorp.com/vagrant/1.9.4/vagrant_1.9.4_x86_64.deb
+  - wget https://releases.hashicorp.com/vagrant/1.9.4/vagrant_1.9.4_SHA256SUMS
+  - wget https://releases.hashicorp.com/vagrant/1.9.4/vagrant_1.9.4_SHA256SUMS.sig
+  - gpg --recv 51852D87348FFC4C
+  - gpg --verify vagrant_1.9.4_SHA256SUMS.sig vagrant_1.9.4_SHA256SUMS
+  - sha256sum -c vagrant_1.9.4_SHA256SUMS 2>&1 | grep 'vagrant_1.9.4_x86_64.deb: OK'
+  - sudo dpkg -i vagrant_1.9.4_x86_64.deb
 script:
+  - "vagrant validade"
   - "bundle exec rake reek"
   - "bundle exec rake rubocop"
   - "bundle exec rake yamllint"
